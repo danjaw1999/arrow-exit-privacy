@@ -3,252 +3,447 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arrow Exit Privacy Policy</title>
-<meta name="description" content="Privacy policy for the Arrow Exit app (iOS and Android) in Polish, English, German and Spanish.">
+<title>Arrow Exit – privacy rule book</title>
+<meta name="description" content="How the Arrow Exit signal box puzzle handles your data. Polski, English, Deutsch, Español.">
 <style>
-  :root { --bg: #14161b; --surface: #1d2027; --line: #2c3038; --text: #f2efe6; --muted: #9a9c98; --accent: #f2b531; }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust: 100%; }
-  nav { position: sticky; top: 0; z-index: 1; background: rgba(20, 22, 27, 0.95); border-bottom: 1px solid var(--line); }
-  nav div { max-width: 760px; margin: 0 auto; padding: 10px 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  nav strong { margin-right: auto; font-size: 15px; }
-  nav a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; }
-  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
-  main { max-width: 760px; margin: 0 auto; padding: 8px 16px 64px; }
-  section { padding-top: 24px; scroll-margin-top: 64px; }
-  section + section { border-top: 1px solid var(--line); margin-top: 40px; }
-  h1 { font-size: 28px; line-height: 1.25; margin: 16px 0 4px; }
-  h2 { font-size: 19px; margin: 28px 0 8px; color: var(--accent); }
-  p, li { color: var(--text); }
-  .meta { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
-  .box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
-  ul { padding-left: 20px; }
-  a { color: var(--accent); overflow-wrap: anywhere; }
-  footer { color: var(--muted); font-size: 13px; text-align: center; padding: 0 16px 32px; }
+:root {
+  --paper: #efe8d6; --card: #f8f3e6; --ink: #1d2a24; --soft: #5d655d; --line: #cbbf9f;
+  --plate: #23453a; --plate-ink: #f4eedc; --red: #b3261e; --board: #141815; --amber: #f2b13a; --board-dim: #8d8f7f;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #121613; --card: #1a201c; --ink: #ebe5d2; --soft: #a3a796; --line: #34403a; --plate: #1f3d33; --red: #e0574c; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-text-size-adjust: 100%; }
+a { color: var(--red); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.sr { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* enamel plate */
+header { padding: 28px 0 8px; }
+.plate { background: var(--plate); color: var(--plate-ink); border-radius: 14px; padding: 22px 26px 20px; border: 3px solid #0f241d; box-shadow: inset 0 0 0 2px rgba(244,238,220,.35);
+  background-image: radial-gradient(circle at 12px 12px, #d8d0b8 3px, transparent 4px), radial-gradient(circle at calc(100% - 12px) 12px, #d8d0b8 3px, transparent 4px), radial-gradient(circle at 12px calc(100% - 12px), #d8d0b8 3px, transparent 4px), radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #d8d0b8 3px, transparent 4px); }
+.plate p { margin: 0; }
+.kicker { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+.plate h1 { font-size: clamp(26px, 6vw, 40px); line-height: 1.1; font-weight: 800; margin: 6px 0 10px; }
+.when { font-size: 14px; opacity: .85; }
+
+/* language levers */
+.frame { display: flex; gap: 10px; justify-content: flex-end; padding: 14px 4px 0; }
+.frame label { cursor: pointer; width: 56px; padding: 26px 0 8px; text-align: center; font-weight: 800; font-size: 14px; letter-spacing: .06em; border: 2px solid var(--ink); border-radius: 8px 8px 4px 4px; position: relative; background: var(--card); transition: transform .15s; }
+.frame label::before { content: ""; position: absolute; top: 7px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--line); border: 2px solid var(--ink); }
+#l-pl:checked ~ header label[for=l-pl], #l-en:checked ~ header label[for=l-en], #l-de:checked ~ header label[for=l-de], #l-es:checked ~ header label[for=l-es] { transform: translateY(6px); background: var(--ink); color: var(--paper); }
+#l-pl:checked ~ header label[for=l-pl]::before, #l-en:checked ~ header label[for=l-en]::before, #l-de:checked ~ header label[for=l-de]::before, #l-es:checked ~ header label[for=l-es]::before { background: var(--red); }
+#l-pl:focus-visible ~ header label[for=l-pl], #l-en:focus-visible ~ header label[for=l-en], #l-de:focus-visible ~ header label[for=l-de], #l-es:focus-visible ~ header label[for=l-es] { outline: 3px solid var(--red); outline-offset: 3px; }
+
+/* one language at a time */
+.doc > article { display: none; }
+#l-pl:checked ~ .doc > [lang=pl], #l-en:checked ~ .doc > [lang=en], #l-de:checked ~ .doc > [lang=de], #l-es:checked ~ .doc > [lang=es] { display: block; }
+
+.lead { font-size: 19px; margin: 24px 0; }
+
+/* departures board */
+.board { background: var(--board); color: var(--amber); border-radius: 10px; padding: 14px 16px 6px; margin: 0 0 36px; border: 3px solid #050605; }
+.board table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.board caption { text-align: left; color: var(--board-dim); font-size: 12px; letter-spacing: .25em; text-transform: uppercase; padding-bottom: 8px; }
+.board th { text-align: left; color: var(--board-dim); font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 8px 6px 0; border-bottom: 1px solid #2b302b; }
+.board td { padding: 9px 8px 9px 0; border-bottom: 1px dashed #2b302b; vertical-align: top; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; }
+.board tr:last-child td { border-bottom: 0; }
+.board td:first-child { color: #f6efdc; font-family: inherit; font-weight: 600; font-size: 15px; }
+
+/* rules */
+ol.rules { list-style: none; counter-reset: rule; margin: 0; padding: 0; }
+ol.rules > li { counter-increment: rule; display: grid; grid-template-columns: 54px 1fr; gap: 0 16px; padding: 22px 0; border-top: 2px solid var(--line); }
+ol.rules > li::before { content: counter(rule); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 19px; background: var(--card); color: var(--ink); border: 5px solid var(--red); }
+ol.rules h2 { font-size: 21px; line-height: 1.25; margin: 8px 0 8px; font-weight: 800; }
+ol.rules p, ol.rules ul { margin: 0 0 10px; }
+ol.rules ul { padding-left: 18px; }
+ol.rules li li { margin-bottom: 4px; }
+ol.rules li li::marker { color: var(--red); }
+
+footer { border-top: 6px double var(--line); margin-top: 16px; padding: 18px 0 44px; color: var(--soft); font-size: 14px; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .frame { justify-content: flex-start; }
+  .board thead { display: none; }
+  .board tr { display: block; padding: 8px 0; border-bottom: 1px dashed #2b302b; }
+  .board tr:last-child { border-bottom: 0; }
+  .board td { display: block; border: 0; padding: 1px 0; }
+  ol.rules > li { grid-template-columns: 1fr; }
+  ol.rules > li::before { width: 38px; height: 38px; font-size: 16px; border-width: 4px; }
+}
 </style>
 </head>
 <body>
-<nav aria-label="Language">
-  <div>
-    <strong>Arrow Exit</strong>
-    <a href="#pl" hreflang="pl" lang="pl">Polski</a>
-    <a href="#en" hreflang="en" lang="en">English</a>
-    <a href="#de" hreflang="de" lang="de">Deutsch</a>
-    <a href="#es" hreflang="es" lang="es">Español</a>
+<input class="sr" type="radio" name="lang" id="l-pl" value="pl" aria-label="Polski">
+<input class="sr" type="radio" name="lang" id="l-en" value="en" aria-label="English" checked>
+<input class="sr" type="radio" name="lang" id="l-de" value="de" aria-label="Deutsch">
+<input class="sr" type="radio" name="lang" id="l-es" value="es" aria-label="Español">
+
+<header class="wrap">
+  <div class="plate">
+    <p class="kicker">Arrow Exit · PL · EN · DE · ES</p>
+    <h1>Privacy rule book</h1>
+    <p class="when">2026-11-06 · JaworIT Daniel Jaworski · kontakt@jaworit.pl</p>
   </div>
-</nav>
-<main>
-
-<section id="pl" lang="pl">
-  <h1>Polityka prywatności</h1>
-  <p class="meta">Arrow Exit (iOS i Android) · obowiązuje od 4 listopada 2026</p>
-  <div class="box">
-    <p>W skrócie: gra działa bez konta i bez internetu. Twoje postępy, ustawienia i statystyki zostają na urządzeniu. Nie mamy własnego serwera. Dane potrzebne do reklam przetwarza Google (AdMob), a zakupy obsługują Apple i Google.</p>
+  <div class="frame" aria-hidden="true">
+    <label for="l-pl" title="Polski">PL</label>
+    <label for="l-en" title="English">EN</label>
+    <label for="l-de" title="Deutsch">DE</label>
+    <label for="l-es" title="Español">ES</label>
   </div>
+</header>
 
-  <h2>Kto odpowiada za aplikację</h2>
-  <p>Aplikację Arrow Exit tworzy JaworIT Daniel Jaworski (administrator danych). Kontakt: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
+<main class="wrap doc">
 
-  <h2>Dane na Twoim urządzeniu</h2>
-  <p>Aplikacja zapisuje lokalnie, w pamięci telefonu: bieżącą planszę (ruchy, kolizje, czas, użyte podpowiedzi), ustawienia (język, dźwięk, wibracje, przypomnienie i jego godzina), postępy (gwiazdki za poziomy, odblokowane poziomy i motywy, wybrany motyw), statystyki (ukończone poziomy, codzienne łamigłówki, seria dni), licznik pokazanych reklam pełnoekranowych (żeby pilnować limitów) oraz informację, czy kupiłeś Premium. Zapisuje też dwa małe liczniki: ile razy i kiedy aplikacja pytała o przypomnienia oraz liczbę uruchomień i dzień, w którym ostatnio pokazała kartę „Więcej gier”. Te dane nie są wysyłane do nas ani nikomu innemu. Usuniesz je w Ustawieniach („Wyczyść postęp”), czyszcząc dane aplikacji lub ją odinstalowując.</p>
-  <p>Nie zakładasz konta, nie podajesz imienia ani adresu e-mail. Aplikacja nie używa narzędzi analitycznych ani do raportowania awarii.</p>
-
-  <h2>Reklamy (Google AdMob)</h2>
-  <p>Wersja darmowa pokazuje baner na ekranach menu i wyniku (nigdy na planszy), czasem reklamę pełnoekranową między poziomami (nie przed poziomem 8, najwyżej jedną na trzy ukończone poziomy i nie częściej niż co 3 minuty) oraz reklamy z nagrodą, które uruchamiasz sam. Reklamy dostarcza Google przez Google Mobile Ads SDK. Gdy reklama jest pobierana, SDK może zbierać i przesyłać do Google:</p>
-  <ul>
-    <li>identyfikatory urządzenia, np. identyfikator reklamowy (IDFA na iOS, za Twoją zgodą; identyfikator reklamowy Androida) i identyfikator zestawu aplikacji,</li>
-    <li>adres IP i przybliżoną lokalizację wyliczoną z adresu IP,</li>
-    <li>informacje o interakcjach z reklamami (np. wyświetlenia, kliknięcia, uruchomienia aplikacji),</li>
-    <li>dane diagnostyczne i o wydajności (np. czas uruchomienia, awarie SDK).</li>
-  </ul>
-  <p>Google używa tych danych do wyświetlania i mierzenia reklam, analityki oraz zapobiegania oszustwom. Dane są szyfrowane w trakcie przesyłania. Szczegóły: <a href="https://policies.google.com/technologies/partner-sites">Jak Google wykorzystuje informacje z aplikacji partnerów</a> i <a href="https://policies.google.com/privacy">Polityka prywatności Google</a>.</p>
-
-  <h2>Zgoda na reklamy (RODO)</h2>
-  <p>W Europejskim Obszarze Gospodarczym, Wielkiej Brytanii i Szwajcarii przed pierwszą reklamą aplikacja pokazuje formularz zgody Google (UMP). Możesz zgodzić się na reklamy spersonalizowane, odmówić lub wybrać szczegółowe opcje. Bez zgody reklamy nie są personalizowane. Decyzję zmienisz w każdej chwili w Ustawieniach → „Prywatność reklam”. Podstawą przetwarzania jest Twoja zgoda (art. 6 ust. 1 lit. a RODO) lub, w zakresie reklam niespersonalizowanych i zapobiegania oszustwom, prawnie uzasadniony interes.</p>
-
-  <h2>Śledzenie na iOS (ATT)</h2>
-  <p>Na iPhonie i iPadzie system zapyta, czy aplikacja może śledzić Twoją aktywność. Tylko jeśli się zgodzisz, Google otrzyma identyfikator reklamowy IDFA. Gra działa tak samo bez tej zgody. Zmienisz to w Ustawieniach systemu → Prywatność i ochrona → Śledzenie. Na Androidzie identyfikator reklamowy zresetujesz lub usuniesz w ustawieniach systemu.</p>
-
-  <h2>Powiadomienia</h2>
-  <p>Przypomnienie o łamigłówce dnia jest domyślnie włączone. Gdy zezwolisz na powiadomienia, telefon planuje lokalne powiadomienie na wybraną godzinę, najwyżej jedno dziennie i żadnego w dni, w które już grasz. Na iPhonie pierwsze powiadomienia mogą trafiać po cichu do Centrum powiadomień, dopóki nie zezwolisz na pełne. Nie korzystamy z powiadomień push ani serwera, nie tworzymy tokenu powiadomień. Wyłączysz je w aplikacji lub w ustawieniach systemu.</p>
-
-  <h2>Linki do naszych innych gier</h2>
-  <p>W Ustawieniach oraz najwyżej raz dziennie na ekranie ukończenia poziomu aplikacja pokazuje inne gry JaworIT, oznaczone „Od JaworIT”. To nie jest reklama firm trzecich: lista jest wbudowana w aplikację, nic nie jest w tym celu pobierane i nie zapisujemy, czy ją widzisz lub klikasz. Dotknięcie otwiera stronę gry w App Store lub Google Play, gdzie obowiązują zasady prywatności Apple lub Google. Gracze Premium nie widzą tej karty na ekranie ukończenia poziomu.</p>
-
-  <h2>Zakupy w aplikacji</h2>
-  <p>Jednorazowy zakup „Premium” obsługuje Apple (App Store) lub Google (Google Play). Nie widzimy Twoich danych płatniczych. Aplikacja otrzymuje tylko informację, czy zakup jest aktywny, i zapisuje ją na urządzeniu. Obowiązują zasady prywatności Apple lub Google.</p>
-
-  <h2>Dzieci</h2>
-  <p>Aplikacja nie jest skierowana do dzieci poniżej 13 lat i świadomie nie zbiera ich danych. Jeśli uważasz, że dziecko przekazało nam dane, napisz do nas.</p>
-
-  <h2>Twoje prawa</h2>
-  <p>Nie przechowujemy Twoich danych na serwerach, więc nie mamy czego udostępnić ani usunąć. Dane w aplikacji usuniesz sam. W sprawie danych reklamowych możesz wycofać zgodę w aplikacji, zresetować identyfikator reklamowy lub skorzystać z narzędzi Google. Masz też prawo złożyć skargę do organu ochrony danych, w Polsce do Prezesa UODO.</p>
-
-  <h2>Zmiany</h2>
-  <p>Jeśli zmienimy tę politykę, opublikujemy nową wersję na tej stronie i zaktualizujemy datę obowiązywania. O istotnych zmianach poinformujemy w aplikacji lub w opisie aktualizacji.</p>
-
-  <h2>Kontakt</h2>
-  <p>Pytania dotyczące prywatności: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-</section>
-
-<section id="en" lang="en">
-  <h1>Privacy Policy</h1>
-  <p class="meta">Arrow Exit (iOS and Android) · effective November 4, 2026</p>
-  <div class="box">
-    <p>In short: the game works without an account and without internet. Your progress, settings and statistics stay on your device. We run no server of our own. Data needed for ads is processed by Google (AdMob), and purchases are handled by Apple and Google.</p>
+<!-- ===================== POLSKI ===================== -->
+<article lang="pl">
+  <p class="lead">W Arrow Exit to Ty jesteś nastawniczym, a nastawnia działa bez konta i bez rejestracji. Prawie wszystko, co gra wie, zostaje w nastawni, czyli w Twoim telefonie. Tablica poniżej pokazuje jedyne rzeczy, które ją opuszczają.</p>
+  <div class="board">
+    <table>
+      <caption>Odjazdy</caption>
+      <thead><tr><th>Co</th><th>Dokąd</th><th>Kiedy</th></tr></thead>
+      <tbody>
+        <tr><td>Postępy, ustawienia i dziennik gry</td><td>Nigdzie, zostają na urządzeniu</td><td>Zawsze</td></tr>
+        <tr><td>Dane potrzebne do pobrania reklamy</td><td>Google (AdMob)</td><td>W wersji darmowej, gdy ładuje się reklama</td></tr>
+        <tr><td>Płatność za Premium</td><td>Apple lub Google</td><td>Tylko jeśli kupisz</td></tr>
+        <tr><td>Codzienne przypomnienie</td><td>Harmonogram w Twoim telefonie</td><td>Gdy jest włączone i dozwolone</td></tr>
+      </tbody>
+    </table>
   </div>
+  <ol class="rules">
+    <li><div>
+      <h2>Kto prowadzi nastawnię</h2>
+      <p>Aplikację wydaje JaworIT Daniel Jaworski, administrator danych osobowych w rozumieniu RODO. W każdej sprawie opisanej na tej stronie napisz na <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>. Nie mamy serwera, do którego gra cokolwiek wysyła, więc nie prowadzimy żadnego Twojego profilu.</p>
+    </div></li>
+    <li><div>
+      <h2>Dziennik w Twoim telefonie</h2>
+      <p>Gra zapisuje swój stan w prywatnej pamięci aplikacji, żebyś mógł wrócić tam, gdzie skończyłeś. Są tam:</p>
+      <ul>
+        <li>ustawienia: dźwięk, wibracje, język, czy przypomnienie jest włączone i na którą godzinę;</li>
+        <li>postępy: gwiazdki za każdy poziom, podpowiedzi użyte na poziomie, najdalszy odblokowany poziom, pominięte poziomy, nieudane próby, gwiazdki bonusowe, informacja, czy pokazano wprowadzenie przy pierwszym uruchomieniu, i wybrany motyw planszy;</li>
+        <li>statystyki: ukończone poziomy, wyprowadzone pociągi, zderzenia, użyte podpowiedzi oraz seria codziennych łamigłówek (z dniami, w które je rozwiązałeś);</li>
+        <li>przerwana plansza, jeśli jakaś jest w toku;</li>
+        <li>liczniki tempa reklam: kiedy była ostatnia reklama pełnoekranowa, ile poziomów minęło od niej i ile pokazano ich łącznie, żeby gra trzymała się swoich limitów;</li>
+        <li>notatki do przypomnień: ile razy i kiedy gra pytała o przypomnienia, czy odmówiłeś i kiedy ostatnio grałeś;</li>
+        <li>informacja, czy Premium jest aktywne.</li>
+      </ul>
+      <p>Nic z tego nie trafia do nas ani do nikogo innego. Gra nie ma konta, analityki ani raportowania awarii. Przycisk „Wyczyść postęp” w Ustawieniach kasuje postępy, statystyki i przerwaną planszę; odinstalowanie aplikacji lub wyczyszczenie jej danych usuwa wszystko.</p>
+    </div></li>
+    <li><div>
+      <h2>Reklamy w wersji darmowej</h2>
+      <p>Wersję darmową utrzymują reklamy Google AdMob, dostarczane przez Google Mobile Ads SDK:</p>
+      <ul>
+        <li>baner na ekranie głównym, liście poziomów i ekranie wyniku, nigdy nad planszą w trakcie gry;</li>
+        <li>od czasu do czasu reklama pełnoekranowa po ukończeniu poziomu: nie przed poziomem 8, najwyżej raz na trzy ukończone poziomy i co najmniej 3 minuty od poprzedniej, nigdy po nieudanej próbie ani w łamigłówce dnia;</li>
+        <li>reklamy z nagrodą, tylko gdy sam o nie poprosisz (podpowiedź, kolejna próba, pominięcie poziomu, podwójne gwiazdki).</li>
+      </ul>
+      <p>Gdy reklama jest pobierana, SDK może zebrać i przesłać do Google:</p>
+      <ul>
+        <li>identyfikatory urządzenia i reklamowe (na iOS IDFA tylko wtedy, gdy zezwolisz na śledzenie; na Androidzie identyfikator reklamowy) oraz identyfikator zestawu aplikacji;</li>
+        <li>adres IP, z którego da się ustalić przybliżoną lokalizację (mniej więcej miasto lub region);</li>
+        <li>sposób, w jaki reagujesz na reklamy, np. wyświetlenia i dotknięcia;</li>
+        <li>dane diagnostyczne i o wydajności SDK i aplikacji.</li>
+      </ul>
+      <p>Google używa ich do wyświetlania i mierzenia reklam, zapobiegania oszustwom i nadużyciom oraz do własnej analityki; przesyłanie jest szyfrowane. Zasady Google: <a href="https://policies.google.com/technologies/partner-sites?hl=pl">jak Google wykorzystuje dane z aplikacji partnerów</a> i <a href="https://policies.google.com/privacy?hl=pl">Polityka prywatności Google</a>. Od AdMob dostajemy tylko zbiorcze raporty przychodów, nie dane o Tobie.</p>
+    </div></li>
+    <li><div>
+      <h2>Twoja zgoda na reklamy</h2>
+      <p>Tam, gdzie Google tego wymaga (np. w Europejskim Obszarze Gospodarczym, Wielkiej Brytanii i Szwajcarii), gra przed pobraniem jakiejkolwiek reklamy pokazuje formularz zgody Google (UMP). Możesz się zgodzić, odmówić albo wybrać cele pojedynczo; po odmowie reklamy mogą się nadal pojawiać, ale nie są spersonalizowane. W tych krajach w Ustawieniach gry jest przycisk „Prywatność reklam”, który otwiera formularz ponownie, żebyś mógł w każdej chwili zmienić zdanie; gdzie indziej przycisk się nie pojawia.</p>
+      <p>Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO) dla reklam spersonalizowanych i zapisywania lub odczytywania identyfikatorów na urządzeniu; dla reklam niespersonalizowanych, pomiaru reklam i zapobiegania oszustwom prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO).</p>
+    </div></li>
+    <li><div>
+      <h2>Śledzenie na iPhonie i iPadzie</h2>
+      <p>Po kroku zgody iOS pyta, czy Arrow Exit może śledzić Twoją aktywność w aplikacjach i witrynach innych firm (App Tracking Transparency). Google dostaje IDFA tylko wtedy, gdy wybierzesz „Pozwól”. Odmowa nic nie zmienia w grze. Decyzję zmienisz w Ustawieniach → Prywatność i ochrona → Śledzenie. Na Androidzie identyfikator reklamowy zresetujesz lub usuniesz w ustawieniach systemu.</p>
+    </div></li>
+    <li><div>
+      <h2>Dzwonek przypomnienia</h2>
+      <p>Gra może przypominać o łamigłówce dnia. Przypomnienie jest domyślnie włączone, ale zadzwoni dopiero, gdy zezwolisz na powiadomienia; godzinę wybierasz sam (8:00, 12:00, 19:00 lub 21:00). To lokalne powiadomienie planowane przez Twój telefon: najwyżej jedno dziennie, żadne w dniu, w którym już grałeś, a po tygodniu bez gry milknie samo. Na iPhonie pierwsze przypomnienia mogą trafiać po cichu do Centrum powiadomień, dopóki nie zezwolisz na pełne. Nie ma tu serwera, usługi push ani tokenu powiadomień. Wyłączysz je w Ustawieniach gry albo telefonu.</p>
+    </div></li>
+    <li><div>
+      <h2>Premium</h2>
+      <p>Premium to jeden jednorazowy zakup, który nie wygasa. Usuwa reklamy, daje darmowe podpowiedzi, kolejne próby i pominięcia oraz odblokowuje dwa motywy planszy. Płatność obsługuje Apple (App Store) lub Google (Google Play) na własnych zasadach prywatności; nigdy nie widzimy danych Twojej karty ani konta. Aplikacja dowiaduje się od sklepu tylko tego, czy masz Premium, i zapamiętuje to na urządzeniu. Przywrócenie zakupu po prostu pyta sklep jeszcze raz.</p>
+    </div></li>
+    <li><div>
+      <h2>Dzieci</h2>
+      <p>Arrow Exit nie jest skierowany do dzieci poniżej 13 lat i świadomie nie zbieramy ich danych. Jeśli sądzisz, że dziecko przesłało nam dane osobowe, napisz, a usuniemy je.</p>
+    </div></li>
+    <li><div>
+      <h2>Twoje prawa</h2>
+      <p>RODO daje Ci prawo dostępu do danych, ich sprostowania i usunięcia, ograniczenia przetwarzania, sprzeciwu, przenoszenia danych oraz wycofania zgody w dowolnym momencie (bez wpływu na wcześniejsze przetwarzanie). Dane gry są w Twoim telefonie, więc decydujesz o nich bezpośrednio. Dane reklamowe kontrolujesz przyciskiem „Prywatność reklam”, ustawieniem śledzenia, ustawieniami identyfikatora reklamowego lub narzędziami Google; możesz też napisać do nas. Masz prawo złożyć skargę do organu nadzorczego, w Polsce do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</p>
+    </div></li>
+    <li><div>
+      <h2>Zmiany i kontakt</h2>
+      <p>Jeśli ta strona się zmieni, nowa wersja pojawi się tutaj z nową datą, a o ważnych zmianach powiemy w aplikacji lub w opisie aktualizacji. Pytania: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
+    </div></li>
+  </ol>
+  <footer>Obowiązuje od 6 listopada 2026 · Administrator: JaworIT Daniel Jaworski · <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a></footer>
+</article>
 
-  <h2>Who is responsible</h2>
-  <p>Arrow Exit is made by JaworIT Daniel Jaworski (data controller). Contact: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-
-  <h2>Data on your device</h2>
-  <p>The app stores the following locally on your device: the current board (moves, collisions, time, hints used), settings (language, sound, vibration, reminder and its hour), progress (stars per level, unlocked levels and themes, the selected theme), statistics (levels cleared, daily puzzles, day streak), a counter of full-screen ads shown (to enforce the limits) and whether you bought Premium. It also keeps two small counters: how often and when the app asked about reminders, and the number of launches plus the day the "More games" card was last shown. This data is not sent to us or anyone else. You can delete it in Settings ("Reset progress"), by clearing the app's data or by uninstalling it.</p>
-  <p>You do not create an account or give us your name or email address. The app uses no analytics or crash-reporting tools.</p>
-
-  <h2>Ads (Google AdMob)</h2>
-  <p>The free version shows a banner on menu and result screens (never on the board), an occasional full-screen ad between levels (not before level 8, at most one per three cleared levels and no more often than every 3 minutes), and rewarded ads that you start yourself. Ads are provided by Google through the Google Mobile Ads SDK. When an ad is loaded, the SDK may collect and send to Google:</p>
-  <ul>
-    <li>device identifiers, such as the advertising identifier (IDFA on iOS, only with your permission; Android advertising ID) and the app set ID,</li>
-    <li>IP address and approximate location derived from the IP address,</li>
-    <li>information about interactions with ads (for example views, taps, app launches),</li>
-    <li>diagnostic and performance data (for example launch time, SDK crashes).</li>
-  </ul>
-  <p>Google uses this data to show and measure ads, for analytics and to prevent fraud. The data is encrypted in transit. Details: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
-
-  <h2>Ad consent (GDPR)</h2>
-  <p>In the European Economic Area, the UK and Switzerland, the app shows Google's consent form (UMP) before the first ad. You can accept personalized ads, decline, or choose detailed options. Without consent, ads are not personalized. You can change your choice at any time in Settings → "Ad privacy". The legal basis is your consent (Art. 6(1)(a) GDPR) or, for non-personalized ads and fraud prevention, legitimate interest.</p>
-
-  <h2>Tracking on iOS (ATT)</h2>
-  <p>On iPhone and iPad, the system asks whether the app may track your activity. Google receives the IDFA advertising identifier only if you allow it. The game works the same without this permission. You can change it in iOS Settings → Privacy &amp; Security → Tracking. On Android, you can reset or delete the advertising ID in the system settings.</p>
-
-  <h2>Notifications</h2>
-  <p>The daily puzzle reminder is on by default. Once you allow notifications, your phone schedules a local notification at the hour you pick, at most one a day and none on days you have already played. On iPhone the first ones may arrive quietly in Notification Center until you allow full notifications. We use no push service or server and create no notification token. Turn it off in the app or in system settings.</p>
-
-  <h2>Links to our other games</h2>
-  <p>In Settings and, at most once a day, on the level-complete screen, the app shows other games by JaworIT, marked "From JaworIT". This is not a third-party ad: the list is built into the app, nothing is downloaded for it, and we do not record whether you see or tap it. Tapping opens the game's page in the App Store or Google Play, where Apple's or Google's privacy policy applies. Premium players do not see the card on the level-complete screen.</p>
-
-  <h2>In-app purchases</h2>
-  <p>The one-time "Premium forever" purchase is processed by Apple (App Store) or Google (Google Play). We never see your payment details. The app only receives whether the purchase is active and stores that on your device. Apple's or Google's privacy policy applies to the payment.</p>
-
-  <h2>Children</h2>
-  <p>The app is not directed at children under 13 and does not knowingly collect their data. If you believe a child has provided us with data, please contact us.</p>
-
-  <h2>Your rights</h2>
-  <p>We do not store your data on any server, so there is nothing for us to export or delete. You can delete the data in the app yourself. For advertising data, you can withdraw consent in the app, reset your advertising ID or use Google's tools. You also have the right to lodge a complaint with a data protection authority.</p>
-
-  <h2>Changes</h2>
-  <p>If we change this policy, we will publish the new version on this page and update the effective date. We will point out significant changes in the app or in the update notes.</p>
-
-  <h2>Contact</h2>
-  <p>Privacy questions: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-</section>
-
-<section id="de" lang="de">
-  <h1>Datenschutzerklärung</h1>
-  <p class="meta">Arrow Exit (iOS und Android) · gültig ab 4. November 2026</p>
-  <div class="box">
-    <p>Kurz gesagt: Das Spiel funktioniert ohne Konto und ohne Internet. Dein Fortschritt, deine Einstellungen und Statistiken bleiben auf deinem Gerät. Wir betreiben keinen eigenen Server. Daten für Werbung verarbeitet Google (AdMob), Käufe wickeln Apple und Google ab.</p>
+<!-- ===================== ENGLISH ===================== -->
+<article lang="en">
+  <p class="lead">In Arrow Exit you are the signalman, and the box runs without an account or a sign-up. Almost everything the game knows stays in the box, which means on your phone. The board below shows the only things that ever leave it.</p>
+  <div class="board">
+    <table>
+      <caption>Departures</caption>
+      <thead><tr><th>What</th><th>Goes to</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Your progress, settings and game log</td><td>Nowhere, stays on this device</td><td>Always</td></tr>
+        <tr><td>Data needed to load an ad</td><td>Google (AdMob)</td><td>Free version, when an ad loads</td></tr>
+        <tr><td>Payment for Premium</td><td>Apple or Google</td><td>Only if you buy it</td></tr>
+        <tr><td>Daily reminder</td><td>Your phone's own scheduler</td><td>When switched on and allowed</td></tr>
+      </tbody>
+    </table>
   </div>
+  <ol class="rules">
+    <li><div>
+      <h2>Who runs this box</h2>
+      <p>The app is published by JaworIT Daniel Jaworski, the controller of personal data under the GDPR. Write to <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a> about anything on this page. We have no server that the game sends data to, so we keep no profile of you.</p>
+    </div></li>
+    <li><div>
+      <h2>The log on your phone</h2>
+      <p>The game saves its state in the app's private storage so you can carry on where you stopped. It holds:</p>
+      <ul>
+        <li>settings: sound, vibration, language, whether the reminder is on and at what hour;</li>
+        <li>progress: stars for each level, hints used per level, the furthest level unlocked, skipped levels, failed attempts, bonus stars, whether the first-launch intro was shown and the board theme in use;</li>
+        <li>statistics: levels cleared, trains sent out, collisions, hints used and your daily-puzzle streak (with the days you solved it);</li>
+        <li>the board you left halfway, if there is one;</li>
+        <li>ad pacing counters: when the last full-screen ad ran, how many levels have passed since, and how many have been shown in total, so the game keeps to its limits;</li>
+        <li>reminder notes: how many times and when the game asked about reminders, whether you said no, and the last day you played;</li>
+        <li>whether Premium is active.</li>
+      </ul>
+      <p>None of it is sent to us or to anyone else. There is no account, no analytics and no crash reporting. "Reset progress" in Settings wipes your progress, statistics and the unfinished board; uninstalling the app or clearing its data removes everything.</p>
+    </div></li>
+    <li><div>
+      <h2>Ads in the free version</h2>
+      <p>The free version is paid for by Google AdMob ads, delivered by the Google Mobile Ads SDK:</p>
+      <ul>
+        <li>a banner on the home screen, the level list and the result screen, never over a board you are playing;</li>
+        <li>now and then a full-screen ad after you clear a level: not before level 8, at most once every three cleared levels and at least 3 minutes after the previous one, never after a failed attempt or in the daily puzzle;</li>
+        <li>rewarded ads, only when you ask for one (a hint, another try, skipping a level, double stars).</li>
+      </ul>
+      <p>When an ad is requested, the SDK may collect and send to Google:</p>
+      <ul>
+        <li>device and advertising identifiers (on iOS the IDFA only if you allow tracking; on Android the advertising ID) and the app set ID;</li>
+        <li>your IP address, from which a coarse location (roughly your city or region) can be worked out;</li>
+        <li>how you interact with ads, such as views and taps;</li>
+        <li>diagnostic and performance data about the SDK and the app.</li>
+      </ul>
+      <p>Google uses this to serve and measure ads, to prevent fraud and abuse, and for its own analytics; it is encrypted in transit. Google's rules: <a href="https://policies.google.com/technologies/partner-sites?hl=en">how Google uses information from apps that use its services</a> and the <a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a>. AdMob gives us only total revenue reports, not data about you.</p>
+    </div></li>
+    <li><div>
+      <h2>Your say on ads</h2>
+      <p>Where Google requires it (for example in the European Economic Area, the UK and Switzerland), the game shows Google's consent form (UMP) before any ad is loaded. You can agree, refuse or choose purposes one by one; if you refuse, ads may still appear but they are not personalised. In those places the game's Settings has an "Ad privacy choices" button that reopens the form, so you can change your mind at any time; elsewhere the button is not shown.</p>
+      <p>Legal basis: your consent (Art. 6(1)(a) GDPR) for personalised ads and for storing or reading identifiers on your device; for non-personalised ads, ad measurement and fraud prevention, legitimate interest (Art. 6(1)(f) GDPR).</p>
+    </div></li>
+    <li><div>
+      <h2>Tracking on iPhone and iPad</h2>
+      <p>After the consent step, iOS asks whether Arrow Exit may track your activity across other companies' apps and websites (App Tracking Transparency). Google receives the IDFA only if you tap Allow. Saying no changes nothing in the game. You can change it later in Settings → Privacy &amp; Security → Tracking. On Android you can reset or delete your advertising ID in the system settings.</p>
+    </div></li>
+    <li><div>
+      <h2>The reminder bell</h2>
+      <p>The game can remind you about the daily puzzle. The reminder is on by default but only rings once you allow notifications; you choose the hour (8:00, 12:00, 19:00 or 21:00). It is a local notification scheduled by your phone: at most one a day, none on a day you have already played, and it goes quiet by itself after a week without play. On iPhone the first reminders may arrive quietly in Notification Centre until you allow full notifications. No server, push service or notification token is involved. Turn it off in the game's Settings or in your phone's settings.</p>
+    </div></li>
+    <li><div>
+      <h2>Premium</h2>
+      <p>Premium is a single one-time purchase that never expires. It removes the ads, makes hints, extra tries and skips free, and unlocks two board themes. Apple (App Store) or Google (Google Play) handles the payment under its own privacy policy; we never see your card or account details. The app only learns from the store whether you own Premium and remembers that on your device. Restoring the purchase simply asks the store again.</p>
+    </div></li>
+    <li><div>
+      <h2>Children</h2>
+      <p>Arrow Exit is not aimed at children under 13, and we do not knowingly collect children's data. If you think a child has sent us personal data, write to us and we will delete it.</p>
+    </div></li>
+    <li><div>
+      <h2>Your rights</h2>
+      <p>Under the GDPR you may access, correct and delete your data, restrict or object to its processing, take it with you, and withdraw consent at any time (this does not affect processing that already happened). The game data lives on your phone, so you control it directly. For ad data, use "Ad privacy choices", the tracking setting, your advertising ID settings or Google's tools; you can also write to us. You may complain to a data protection authority; in Poland that is the President of the Personal Data Protection Office (UODO).</p>
+    </div></li>
+    <li><div>
+      <h2>Changes and contact</h2>
+      <p>If this page changes, the new version will appear here with a new date, and important changes will be pointed out in the app or in the update notes. Questions: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
+    </div></li>
+  </ol>
+  <footer>In force from 6 November 2026 · Controller: JaworIT Daniel Jaworski · <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a></footer>
+</article>
 
-  <h2>Verantwortlich</h2>
-  <p>Arrow Exit wird von JaworIT Daniel Jaworski erstellt (Verantwortlicher). Kontakt: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-
-  <h2>Daten auf deinem Gerät</h2>
-  <p>Die App speichert lokal auf deinem Gerät: das aktuelle Spielfeld (Züge, Kollisionen, Zeit, genutzte Tipps), Einstellungen (Sprache, Ton, Vibration, Erinnerung und Uhrzeit), Fortschritt (Sterne pro Level, freigeschaltete Level und Designs, gewähltes Design), Statistiken (geschaffte Level, Tagesrätsel, Tagesserie), einen Zähler der gezeigten Vollbildanzeigen (für die Limits) und ob du Premium gekauft hast. Außerdem speichert sie zwei kleine Zähler: wie oft und wann die App nach Erinnerungen gefragt hat sowie die Zahl der Starts und den Tag, an dem die Karte „Mehr Spiele“ zuletzt gezeigt wurde. Diese Daten werden weder an uns noch an andere gesendet. Du löschst sie in den Einstellungen („Fortschritt löschen“), über die App-Daten oder durch Deinstallieren.</p>
-  <p>Du legst kein Konto an und gibst weder Namen noch E-Mail-Adresse an. Die App nutzt keine Analyse- oder Absturzberichts-Tools.</p>
-
-  <h2>Werbung (Google AdMob)</h2>
-  <p>Die kostenlose Version zeigt ein Banner auf Menü- und Ergebnisbildschirmen (nie auf dem Spielfeld), gelegentlich eine Vollbildwerbung zwischen Leveln (nicht vor Level 8, höchstens eine pro drei geschaffte Level und nicht öfter als alle 3 Minuten) und Werbung mit Belohnung, die du selbst startest. Die Werbung liefert Google über das Google Mobile Ads SDK. Beim Laden einer Anzeige kann das SDK folgende Daten erfassen und an Google senden:</p>
-  <ul>
-    <li>Gerätekennungen, z. B. die Werbe-ID (IDFA auf iOS nur mit deiner Erlaubnis; Android-Werbe-ID) und die App-Set-ID,</li>
-    <li>IP-Adresse und daraus abgeleiteter ungefährer Standort,</li>
-    <li>Informationen zu Interaktionen mit Anzeigen (z. B. Aufrufe, Tippen, App-Starts),</li>
-    <li>Diagnose- und Leistungsdaten (z. B. Startzeit, Abstürze des SDK).</li>
-  </ul>
-  <p>Google nutzt diese Daten, um Anzeigen auszuliefern und zu messen, für Analysen und zur Betrugsvermeidung. Die Übertragung ist verschlüsselt. Details: <a href="https://policies.google.com/technologies/partner-sites">Wie Google Daten von Websites und Apps von Partnern verwendet</a> und die <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>.</p>
-
-  <h2>Einwilligung zu Werbung (DSGVO)</h2>
-  <p>Im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz zeigt die App vor der ersten Anzeige das Einwilligungsformular von Google (UMP). Du kannst personalisierte Werbung erlauben, ablehnen oder Einstellungen im Detail wählen. Ohne Einwilligung wird keine personalisierte Werbung gezeigt. Deine Wahl änderst du jederzeit unter Einstellungen → „Werbe-Datenschutz“. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) bzw. für nicht personalisierte Werbung und Betrugsvermeidung das berechtigte Interesse.</p>
-
-  <h2>Tracking auf iOS (ATT)</h2>
-  <p>Auf iPhone und iPad fragt das System, ob die App deine Aktivitäten erfassen darf. Nur wenn du zustimmst, erhält Google die Werbe-ID IDFA. Das Spiel funktioniert ohne diese Erlaubnis genauso. Ändern kannst du das in den iOS-Einstellungen → Datenschutz &amp; Sicherheit → Tracking. Auf Android setzt du die Werbe-ID in den Systemeinstellungen zurück oder löschst sie.</p>
-
-  <h2>Benachrichtigungen</h2>
-  <p>Die Erinnerung an das Tagesrätsel ist standardmäßig an. Sobald du Benachrichtigungen erlaubst, plant dein Telefon eine lokale Benachrichtigung zur gewählten Uhrzeit, höchstens eine am Tag und keine an Tagen, an denen du schon gespielt hast. Auf dem iPhone landen die ersten eventuell still in der Mitteilungszentrale, bis du volle Benachrichtigungen erlaubst. Wir nutzen keinen Push-Dienst und keinen Server und erzeugen kein Benachrichtigungs-Token. Ausschalten kannst du sie in der App oder in den Systemeinstellungen.</p>
-
-  <h2>Links zu unseren anderen Spielen</h2>
-  <p>In den Einstellungen und höchstens einmal am Tag auf dem Level-geschafft-Bildschirm zeigt die App andere Spiele von JaworIT, gekennzeichnet mit „Von JaworIT“. Das ist keine Werbung Dritter: Die Liste ist in die App eingebaut, dafür wird nichts geladen, und wir erfassen nicht, ob du sie siehst oder antippst. Ein Tippen öffnet die Seite des Spiels im App Store oder bei Google Play; dort gilt die Datenschutzerklärung von Apple bzw. Google. Premium-Spieler sehen die Karte auf dem Level-geschafft-Bildschirm nicht.</p>
-
-  <h2>In-App-Käufe</h2>
-  <p>Den einmaligen Kauf „Premium für immer“ wickelt Apple (App Store) oder Google (Google Play) ab. Wir sehen deine Zahlungsdaten nie. Die App erhält nur die Information, ob der Kauf aktiv ist, und speichert sie auf dem Gerät. Für die Zahlung gilt die Datenschutzerklärung von Apple bzw. Google.</p>
-
-  <h2>Kinder</h2>
-  <p>Die App richtet sich nicht an Kinder unter 13 Jahren und erhebt wissentlich keine Daten von ihnen. Wenn du glaubst, dass ein Kind uns Daten übermittelt hat, melde dich bitte.</p>
-
-  <h2>Deine Rechte</h2>
-  <p>Wir speichern deine Daten auf keinem Server, daher können wir nichts herausgeben oder löschen. Die Daten in der App löschst du selbst. Zu Werbedaten kannst du deine Einwilligung in der App widerrufen, die Werbe-ID zurücksetzen oder die Tools von Google nutzen. Du hast außerdem das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
-
-  <h2>Änderungen</h2>
-  <p>Wenn wir diese Erklärung ändern, veröffentlichen wir die neue Fassung auf dieser Seite und aktualisieren das Gültigkeitsdatum. Auf wesentliche Änderungen weisen wir in der App oder in den Update-Hinweisen hin.</p>
-
-  <h2>Kontakt</h2>
-  <p>Fragen zum Datenschutz: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-</section>
-
-<section id="es" lang="es">
-  <h1>Política de privacidad</h1>
-  <p class="meta">Arrow Exit (iOS y Android) · en vigor desde el 4 de noviembre de 2026</p>
-  <div class="box">
-    <p>En resumen: el juego funciona sin cuenta y sin internet. Tu progreso, ajustes y estadísticas se quedan en tu dispositivo. No tenemos servidor propio. Los datos necesarios para los anuncios los trata Google (AdMob), y las compras las gestionan Apple y Google.</p>
+<!-- ===================== DEUTSCH ===================== -->
+<article lang="de">
+  <p class="lead">In Arrow Exit bist du der Fahrdienstleiter, und das Stellwerk läuft ohne Konto und ohne Anmeldung. Fast alles, was das Spiel weiß, bleibt im Stellwerk, also auf deinem Telefon. Die Tafel unten zeigt die einzigen Dinge, die es je verlassen.</p>
+  <div class="board">
+    <table>
+      <caption>Abfahrt</caption>
+      <thead><tr><th>Was</th><th>Wohin</th><th>Wann</th></tr></thead>
+      <tbody>
+        <tr><td>Fortschritt, Einstellungen und Spielprotokoll</td><td>Nirgendwohin, bleibt auf dem Gerät</td><td>Immer</td></tr>
+        <tr><td>Daten zum Laden einer Anzeige</td><td>Google (AdMob)</td><td>Gratisversion, wenn eine Anzeige lädt</td></tr>
+        <tr><td>Zahlung für Premium</td><td>Apple oder Google</td><td>Nur wenn du kaufst</td></tr>
+        <tr><td>Tägliche Erinnerung</td><td>Der Zeitplaner deines Telefons</td><td>Wenn eingeschaltet und erlaubt</td></tr>
+      </tbody>
+    </table>
   </div>
+  <ol class="rules">
+    <li><div>
+      <h2>Wer das Stellwerk betreibt</h2>
+      <p>Die App wird von JaworIT Daniel Jaworski herausgegeben, dem Verantwortlichen im Sinne der DSGVO. Zu allem auf dieser Seite schreib an <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>. Wir haben keinen Server, an den das Spiel Daten schickt, und führen daher kein Profil über dich.</p>
+    </div></li>
+    <li><div>
+      <h2>Das Protokoll auf deinem Telefon</h2>
+      <p>Das Spiel speichert seinen Stand im privaten Speicher der App, damit du dort weitermachen kannst, wo du aufgehört hast. Darin stehen:</p>
+      <ul>
+        <li>Einstellungen: Ton, Vibration, Sprache, ob die Erinnerung an ist und zu welcher Uhrzeit;</li>
+        <li>Fortschritt: Sterne pro Level, genutzte Tipps pro Level, das am weitesten freigeschaltete Level, übersprungene Level, Fehlversuche, Bonussterne, ob die Einführung beim ersten Start gezeigt wurde und das gewählte Spielfeld-Design;</li>
+        <li>Statistik: geschaffte Level, ausgefahrene Züge, Zusammenstöße, genutzte Tipps und deine Serie beim Tagesrätsel (mit den gelösten Tagen);</li>
+        <li>das angefangene Spielfeld, falls es eines gibt;</li>
+        <li>Zähler für den Werbetakt: wann die letzte Vollbildanzeige lief, wie viele Level seitdem vergangen sind und wie viele insgesamt gezeigt wurden, damit das Spiel seine Grenzen einhält;</li>
+        <li>Notizen zur Erinnerung: wie oft und wann das Spiel nach Erinnerungen gefragt hat, ob du abgelehnt hast und wann du zuletzt gespielt hast;</li>
+        <li>ob Premium aktiv ist.</li>
+      </ul>
+      <p>Nichts davon geht an uns oder an andere. Es gibt kein Konto, keine Analyse und keine Absturzberichte. „Fortschritt löschen“ in den Einstellungen entfernt Fortschritt, Statistik und das angefangene Spielfeld; Deinstallieren der App oder Löschen ihrer Daten entfernt alles.</p>
+    </div></li>
+    <li><div>
+      <h2>Werbung in der Gratisversion</h2>
+      <p>Die Gratisversion finanziert sich über Anzeigen von Google AdMob, ausgeliefert durch das Google Mobile Ads SDK:</p>
+      <ul>
+        <li>ein Banner auf dem Startbildschirm, in der Levelliste und auf dem Ergebnisbildschirm, nie über einem laufenden Spielfeld;</li>
+        <li>ab und zu eine Vollbildanzeige nach einem geschafften Level: nicht vor Level 8, höchstens einmal pro drei geschaffte Level und frühestens 3 Minuten nach der letzten, nie nach einem Fehlversuch und nie im Tagesrätsel;</li>
+        <li>Anzeigen mit Belohnung, nur wenn du selbst eine anforderst (Tipp, neuer Versuch, Level überspringen, doppelte Sterne).</li>
+      </ul>
+      <p>Wenn eine Anzeige angefordert wird, kann das SDK folgende Daten erfassen und an Google senden:</p>
+      <ul>
+        <li>Geräte- und Werbekennungen (auf iOS die IDFA nur, wenn du Tracking erlaubst; auf Android die Werbe-ID) sowie die App-Set-ID;</li>
+        <li>deine IP-Adresse, aus der sich ein ungefährer Standort (etwa Stadt oder Region) ableiten lässt;</li>
+        <li>wie du mit Anzeigen umgehst, z. B. Aufrufe und Tippen;</li>
+        <li>Diagnose- und Leistungsdaten zum SDK und zur App.</li>
+      </ul>
+      <p>Google nutzt das, um Anzeigen auszuliefern und zu messen, Betrug und Missbrauch zu verhindern und für eigene Analysen; die Übertragung ist verschlüsselt. Googles Regeln: <a href="https://policies.google.com/technologies/partner-sites?hl=de">wie Google Daten aus Partner-Apps verwendet</a> und die <a href="https://policies.google.com/privacy?hl=de">Datenschutzerklärung von Google</a>. Von AdMob erhalten wir nur Gesamtberichte über Einnahmen, keine Daten über dich.</p>
+    </div></li>
+    <li><div>
+      <h2>Deine Entscheidung zu Werbung</h2>
+      <p>Wo Google es verlangt (zum Beispiel im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz), zeigt das Spiel vor dem Laden jeder Anzeige das Einwilligungsformular von Google (UMP). Du kannst zustimmen, ablehnen oder Zwecke einzeln wählen; lehnst du ab, kann weiterhin Werbung erscheinen, aber nicht personalisiert. Dort gibt es in den Einstellungen des Spiels die Schaltfläche „Datenschutz bei Werbung“, die das Formular erneut öffnet, damit du deine Wahl jederzeit ändern kannst; anderswo wird sie nicht angezeigt.</p>
+      <p>Rechtsgrundlage: deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) für personalisierte Werbung und das Speichern oder Auslesen von Kennungen auf deinem Gerät; für nicht personalisierte Werbung, Anzeigenmessung und Betrugsvermeidung das berechtigte Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+    </div></li>
+    <li><div>
+      <h2>Tracking auf iPhone und iPad</h2>
+      <p>Nach dem Einwilligungsschritt fragt iOS, ob Arrow Exit deine Aktivitäten in Apps und auf Websites anderer Unternehmen verfolgen darf (App Tracking Transparency). Google erhält die IDFA nur, wenn du „Erlauben“ wählst. Ein Nein ändert nichts am Spiel. Später änderst du das unter Einstellungen → Datenschutz &amp; Sicherheit → Tracking. Auf Android setzt du die Werbe-ID in den Systemeinstellungen zurück oder löschst sie.</p>
+    </div></li>
+    <li><div>
+      <h2>Die Erinnerungsglocke</h2>
+      <p>Das Spiel kann dich an das Tagesrätsel erinnern. Die Erinnerung ist standardmäßig an, klingelt aber erst, wenn du Benachrichtigungen erlaubst; die Uhrzeit wählst du selbst (8:00, 12:00, 19:00 oder 21:00). Es ist eine lokale Benachrichtigung, die dein Telefon plant: höchstens eine am Tag, keine an einem Tag, an dem du schon gespielt hast, und nach einer Woche ohne Spiel verstummt sie von selbst. Auf dem iPhone landen die ersten Erinnerungen eventuell still in der Mitteilungszentrale, bis du volle Benachrichtigungen erlaubst. Es gibt keinen Server, keinen Push-Dienst und kein Benachrichtigungs-Token. Ausschalten kannst du sie in den Einstellungen des Spiels oder des Telefons.</p>
+    </div></li>
+    <li><div>
+      <h2>Premium</h2>
+      <p>Premium ist ein einziger Einmalkauf, der nicht abläuft. Er entfernt die Werbung, macht Tipps, neue Versuche und das Überspringen kostenlos und schaltet zwei Spielfeld-Designs frei. Die Zahlung wickelt Apple (App Store) oder Google (Google Play) nach eigenen Datenschutzregeln ab; deine Karten- oder Kontodaten sehen wir nie. Die App erfährt vom Store nur, ob du Premium besitzt, und merkt sich das auf dem Gerät. Das Wiederherstellen des Kaufs fragt einfach erneut beim Store nach.</p>
+    </div></li>
+    <li><div>
+      <h2>Kinder</h2>
+      <p>Arrow Exit richtet sich nicht an Kinder unter 13 Jahren, und wir erheben wissentlich keine Daten von Kindern. Wenn du glaubst, dass uns ein Kind personenbezogene Daten geschickt hat, schreib uns, und wir löschen sie.</p>
+    </div></li>
+    <li><div>
+      <h2>Deine Rechte</h2>
+      <p>Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung und Löschung, auf Einschränkung der Verarbeitung, auf Widerspruch, auf Datenübertragbarkeit und darauf, eine Einwilligung jederzeit zu widerrufen (ohne Wirkung für die Zeit davor). Die Spieldaten liegen auf deinem Telefon, du hast sie also selbst in der Hand. Für Werbedaten nutze „Datenschutz bei Werbung“, die Tracking-Einstellung, die Einstellungen deiner Werbe-ID oder die Tools von Google; du kannst uns auch schreiben. Du kannst dich bei einer Datenschutzaufsichtsbehörde beschweren; in Polen ist das der Präsident des Amtes für den Schutz personenbezogener Daten (UODO).</p>
+    </div></li>
+    <li><div>
+      <h2>Änderungen und Kontakt</h2>
+      <p>Ändert sich diese Seite, erscheint die neue Fassung hier mit neuem Datum; auf wichtige Änderungen weisen wir in der App oder in den Update-Hinweisen hin. Fragen: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
+    </div></li>
+  </ol>
+  <footer>Gültig ab 6. November 2026 · Verantwortlicher: JaworIT Daniel Jaworski · <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a></footer>
+</article>
 
-  <h2>Responsable</h2>
-  <p>Arrow Exit lo crea JaworIT Daniel Jaworski (responsable del tratamiento). Contacto: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-
-  <h2>Datos en tu dispositivo</h2>
-  <p>La app guarda localmente en tu dispositivo: el tablero actual (movimientos, choques, tiempo, pistas usadas), los ajustes (idioma, sonido, vibración, recordatorio y su hora), el progreso (estrellas por nivel, niveles y temas desbloqueados, tema elegido), las estadísticas (niveles superados, puzles diarios, racha de días), un contador de anuncios a pantalla completa mostrados (para respetar los límites) y si has comprado Premium. También guarda dos pequeños contadores: cuántas veces y cuándo la app preguntó por los recordatorios, y el número de aperturas y el día en que se mostró por última vez la tarjeta «Más juegos». Estos datos no se envían ni a nosotros ni a nadie. Puedes borrarlos en Ajustes («Borrar progreso»), borrando los datos de la app o desinstalándola.</p>
-  <p>No creas ninguna cuenta ni nos das tu nombre o correo electrónico. La app no usa herramientas de analítica ni de informes de fallos.</p>
-
-  <h2>Anuncios (Google AdMob)</h2>
-  <p>La versión gratuita muestra un banner en las pantallas de menú y de resultado (nunca en el tablero), de vez en cuando un anuncio a pantalla completa entre niveles (no antes del nivel 8, como máximo uno cada tres niveles superados y no más de uno cada 3 minutos) y anuncios con recompensa que inicias tú. Los anuncios los proporciona Google mediante el Google Mobile Ads SDK. Al cargar un anuncio, el SDK puede recopilar y enviar a Google:</p>
-  <ul>
-    <li>identificadores del dispositivo, como el identificador de publicidad (IDFA en iOS, solo con tu permiso; ID de publicidad de Android) y el ID del conjunto de apps,</li>
-    <li>la dirección IP y la ubicación aproximada derivada de ella,</li>
-    <li>información sobre interacciones con anuncios (por ejemplo, visualizaciones, toques, aperturas de la app),</li>
-    <li>datos de diagnóstico y rendimiento (por ejemplo, tiempo de inicio, fallos del SDK).</li>
-  </ul>
-  <p>Google usa estos datos para mostrar y medir anuncios, para analítica y para prevenir el fraude. Los datos se cifran durante la transmisión. Más información: <a href="https://policies.google.com/technologies/partner-sites">Cómo utiliza Google la información de sitios web o aplicaciones que utilizan sus servicios</a> y la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>.</p>
-
-  <h2>Consentimiento para anuncios (RGPD)</h2>
-  <p>En el Espacio Económico Europeo, el Reino Unido y Suiza, la app muestra el formulario de consentimiento de Google (UMP) antes del primer anuncio. Puedes aceptar anuncios personalizados, rechazarlos o elegir opciones detalladas. Sin consentimiento, los anuncios no se personalizan. Puedes cambiar tu elección en cualquier momento en Ajustes → «Privacidad de anuncios». La base jurídica es tu consentimiento (art. 6.1.a del RGPD) o, para anuncios no personalizados y prevención del fraude, el interés legítimo.</p>
-
-  <h2>Seguimiento en iOS (ATT)</h2>
-  <p>En iPhone y iPad, el sistema te pregunta si la app puede rastrear tu actividad. Google solo recibe el identificador de publicidad IDFA si lo permites. El juego funciona igual sin este permiso. Puedes cambiarlo en Ajustes de iOS → Privacidad y seguridad → Rastreo. En Android puedes restablecer o eliminar el ID de publicidad en los ajustes del sistema.</p>
-
-  <h2>Notificaciones</h2>
-  <p>El recordatorio del puzle diario está activado por defecto. Cuando permites las notificaciones, tu teléfono programa una notificación local a la hora que elijas, como mucho una al día y ninguna los días que ya hayas jugado. En iPhone las primeras pueden llegar en silencio al Centro de notificaciones hasta que permitas las notificaciones completas. No usamos ningún servicio push ni servidor y no creamos ningún token de notificaciones. Puedes desactivarlo en la app o en los ajustes del sistema.</p>
-
-  <h2>Enlaces a nuestros otros juegos</h2>
-  <p>En Ajustes y, como mucho una vez al día, en la pantalla de nivel completado, la app muestra otros juegos de JaworIT, marcados «De JaworIT». No es publicidad de terceros: la lista viene dentro de la app, no se descarga nada para ella y no registramos si la ves o la tocas. Al tocarla se abre la página del juego en App Store o Google Play, donde se aplica la política de privacidad de Apple o de Google. Los jugadores Premium no ven la tarjeta en la pantalla de nivel completado.</p>
-
-  <h2>Compras dentro de la app</h2>
-  <p>La compra única «Premium para siempre» la procesa Apple (App Store) o Google (Google Play). Nunca vemos tus datos de pago. La app solo recibe si la compra está activa y lo guarda en tu dispositivo. Al pago se aplica la política de privacidad de Apple o de Google.</p>
-
-  <h2>Menores</h2>
-  <p>La app no está dirigida a menores de 13 años y no recopila sus datos de forma consciente. Si crees que un menor nos ha facilitado datos, escríbenos.</p>
-
-  <h2>Tus derechos</h2>
-  <p>No guardamos tus datos en ningún servidor, así que no tenemos nada que entregar ni borrar. Los datos de la app los borras tú. Sobre los datos publicitarios, puedes retirar el consentimiento en la app, restablecer tu ID de publicidad o usar las herramientas de Google. También tienes derecho a presentar una reclamación ante una autoridad de protección de datos.</p>
-
-  <h2>Cambios</h2>
-  <p>Si cambiamos esta política, publicaremos la nueva versión en esta página y actualizaremos la fecha de entrada en vigor. Avisaremos de los cambios importantes en la app o en las notas de la actualización.</p>
-
-  <h2>Contacto</h2>
-  <p>Preguntas sobre privacidad: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
-</section>
+<!-- ===================== ESPAÑOL ===================== -->
+<article lang="es">
+  <p class="lead">En Arrow Exit el guardagujas eres tú, y el puesto de señales funciona sin cuenta ni registro. Casi todo lo que sabe el juego se queda en el puesto, es decir, en tu teléfono. El panel de abajo muestra lo único que sale de él.</p>
+  <div class="board">
+    <table>
+      <caption>Salidas</caption>
+      <thead><tr><th>Qué</th><th>Destino</th><th>Cuándo</th></tr></thead>
+      <tbody>
+        <tr><td>Tu progreso, ajustes y registro de juego</td><td>Ninguno, se queda en el dispositivo</td><td>Siempre</td></tr>
+        <tr><td>Datos para cargar un anuncio</td><td>Google (AdMob)</td><td>Versión gratuita, al cargar un anuncio</td></tr>
+        <tr><td>Pago de Premium</td><td>Apple o Google</td><td>Solo si lo compras</td></tr>
+        <tr><td>Recordatorio diario</td><td>El programador de tu teléfono</td><td>Si está activado y permitido</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="rules">
+    <li><div>
+      <h2>Quién lleva el puesto</h2>
+      <p>La app la publica JaworIT Daniel Jaworski, responsable del tratamiento de datos personales según el RGPD. Para cualquier asunto de esta página, escribe a <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>. No tenemos ningún servidor al que el juego envíe datos, así que no guardamos ningún perfil tuyo.</p>
+    </div></li>
+    <li><div>
+      <h2>El registro en tu teléfono</h2>
+      <p>El juego guarda su estado en el almacenamiento privado de la app para que puedas seguir donde lo dejaste. Contiene:</p>
+      <ul>
+        <li>ajustes: sonido, vibración, idioma, si el recordatorio está activado y a qué hora;</li>
+        <li>progreso: estrellas de cada nivel, pistas usadas por nivel, el nivel más avanzado desbloqueado, niveles saltados, intentos fallidos, estrellas extra, si ya se mostró la introducción inicial y el tema del tablero en uso;</li>
+        <li>estadísticas: niveles superados, trenes despachados, choques, pistas usadas y tu racha del puzle diario (con los días resueltos);</li>
+        <li>el tablero que dejaste a medias, si lo hay;</li>
+        <li>contadores del ritmo de anuncios: cuándo se mostró el último anuncio a pantalla completa, cuántos niveles han pasado desde entonces y cuántos se han mostrado en total, para que el juego respete sus límites;</li>
+        <li>notas del recordatorio: cuántas veces y cuándo el juego preguntó por los recordatorios, si dijiste que no y el último día que jugaste;</li>
+        <li>si Premium está activo.</li>
+      </ul>
+      <p>Nada de esto se envía a nosotros ni a nadie más. No hay cuenta, ni analítica, ni informes de fallos. «Borrar progreso» en Ajustes elimina tu progreso, las estadísticas y el tablero a medias; desinstalar la app o borrar sus datos lo elimina todo.</p>
+    </div></li>
+    <li><div>
+      <h2>Anuncios en la versión gratuita</h2>
+      <p>La versión gratuita se financia con anuncios de Google AdMob, servidos por el Google Mobile Ads SDK:</p>
+      <ul>
+        <li>un banner en la pantalla de inicio, la lista de niveles y la pantalla de resultado, nunca sobre un tablero en juego;</li>
+        <li>de vez en cuando un anuncio a pantalla completa tras superar un nivel: no antes del nivel 8, como máximo uno cada tres niveles superados y al menos 3 minutos después del anterior, nunca tras un intento fallido ni en el puzle diario;</li>
+        <li>anuncios con recompensa, solo cuando tú pides uno (una pista, otro intento, saltar un nivel, estrellas dobles).</li>
+      </ul>
+      <p>Al solicitar un anuncio, el SDK puede recopilar y enviar a Google:</p>
+      <ul>
+        <li>identificadores del dispositivo y de publicidad (en iOS el IDFA solo si permites el rastreo; en Android el ID de publicidad) y el ID del conjunto de apps;</li>
+        <li>tu dirección IP, a partir de la cual puede deducirse una ubicación aproximada (más o menos la ciudad o región);</li>
+        <li>cómo interactúas con los anuncios, por ejemplo visualizaciones y toques;</li>
+        <li>datos de diagnóstico y rendimiento del SDK y de la app.</li>
+      </ul>
+      <p>Google los usa para servir y medir anuncios, prevenir el fraude y el abuso, y para su propia analítica; se transmiten cifrados. Normas de Google: <a href="https://policies.google.com/technologies/partner-sites?hl=es">cómo usa Google la información de las apps de sus socios</a> y la <a href="https://policies.google.com/privacy?hl=es">Política de privacidad de Google</a>. AdMob solo nos da informes de ingresos totales, no datos sobre ti.</p>
+    </div></li>
+    <li><div>
+      <h2>Tu decisión sobre los anuncios</h2>
+      <p>Donde Google lo exige (por ejemplo en el Espacio Económico Europeo, el Reino Unido y Suiza), el juego muestra el formulario de consentimiento de Google (UMP) antes de cargar ningún anuncio. Puedes aceptar, rechazar o elegir los fines uno por uno; si rechazas, puede que sigas viendo anuncios, pero no personalizados. En esos lugares, los Ajustes del juego tienen el botón «Privacidad de anuncios», que vuelve a abrir el formulario para que cambies de opinión cuando quieras; en otros lugares el botón no aparece.</p>
+      <p>Base jurídica: tu consentimiento (art. 6.1.a del RGPD) para los anuncios personalizados y para guardar o leer identificadores en tu dispositivo; para los anuncios no personalizados, la medición de anuncios y la prevención del fraude, el interés legítimo (art. 6.1.f del RGPD).</p>
+    </div></li>
+    <li><div>
+      <h2>Rastreo en iPhone y iPad</h2>
+      <p>Después del paso de consentimiento, iOS pregunta si Arrow Exit puede rastrear tu actividad en apps y sitios web de otras empresas (App Tracking Transparency). Google solo recibe el IDFA si eliges «Permitir». Decir que no no cambia nada en el juego. Puedes cambiarlo después en Ajustes → Privacidad y seguridad → Rastreo. En Android puedes restablecer o eliminar el ID de publicidad en los ajustes del sistema.</p>
+    </div></li>
+    <li><div>
+      <h2>La campana del recordatorio</h2>
+      <p>El juego puede recordarte el puzle diario. El recordatorio viene activado, pero solo suena cuando permites las notificaciones; tú eliges la hora (8:00, 12:00, 19:00 o 21:00). Es una notificación local que programa tu teléfono: como mucho una al día, ninguna el día que ya hayas jugado, y tras una semana sin jugar se calla sola. En iPhone los primeros recordatorios pueden llegar en silencio al Centro de notificaciones hasta que permitas las notificaciones completas. No hay servidor, ni servicio push, ni token de notificaciones. Puedes desactivarlo en los Ajustes del juego o del teléfono.</p>
+    </div></li>
+    <li><div>
+      <h2>Premium</h2>
+      <p>Premium es una única compra que no caduca. Quita los anuncios, hace gratis las pistas, los intentos extra y los saltos de nivel, y desbloquea dos temas de tablero. El pago lo gestiona Apple (App Store) o Google (Google Play) según su propia política de privacidad; nunca vemos los datos de tu tarjeta ni de tu cuenta. La app solo sabe por la tienda si tienes Premium y lo recuerda en tu dispositivo. Restaurar la compra simplemente vuelve a preguntar a la tienda.</p>
+    </div></li>
+    <li><div>
+      <h2>Menores</h2>
+      <p>Arrow Exit no está dirigido a menores de 13 años y no recopilamos a sabiendas datos de menores. Si crees que un menor nos ha enviado datos personales, escríbenos y los borraremos.</p>
+    </div></li>
+    <li><div>
+      <h2>Tus derechos</h2>
+      <p>Según el RGPD puedes acceder a tus datos, rectificarlos y suprimirlos, limitar u oponerte a su tratamiento, llevártelos (portabilidad) y retirar tu consentimiento en cualquier momento (sin afectar al tratamiento anterior). Los datos del juego están en tu teléfono, así que los controlas tú directamente. Para los datos publicitarios usa «Privacidad de anuncios», el ajuste de rastreo, los ajustes de tu ID de publicidad o las herramientas de Google; también puedes escribirnos. Puedes presentar una reclamación ante una autoridad de protección de datos; en Polonia es el Presidente de la Oficina de Protección de Datos Personales (UODO).</p>
+    </div></li>
+    <li><div>
+      <h2>Cambios y contacto</h2>
+      <p>Si esta página cambia, la nueva versión aparecerá aquí con una nueva fecha, y avisaremos de los cambios importantes en la app o en las notas de la actualización. Preguntas: <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a>.</p>
+    </div></li>
+  </ol>
+  <footer>En vigor desde el 6 de noviembre de 2026 · Responsable: JaworIT Daniel Jaworski · <a href="mailto:kontakt@jaworit.pl">kontakt@jaworit.pl</a></footer>
+</article>
 
 </main>
-<footer>Arrow Exit · com.jaworit.arrowexit</footer>
+
+<script>
+// Picks the language from #pl/#en/#de/#es or the browser; without JS the page shows English.
+(function () {
+  var c = ['pl', 'en', 'de', 'es'], h = location.hash.slice(1), n = (navigator.language || '').slice(0, 2).toLowerCase();
+  var l = c.indexOf(h) > -1 ? h : c.indexOf(n) > -1 ? n : 'en';
+  document.getElementById('l-' + l).checked = true;
+  document.documentElement.lang = l;
+  document.addEventListener('change', function (e) { if (e.target.name === 'lang') document.documentElement.lang = e.target.value; });
+})();
+</script>
 </body>
 </html>
